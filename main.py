@@ -5,10 +5,28 @@ from food import Food
 from score_board import Score
 
 screen = Screen()
-screen.setup(width= 500, height= 500)
+screen.setup(width= 520, height= 520)
 screen.bgcolor("Black")
 screen.title("🐍 Snake Game")
 screen.tracer(0)
+
+# Wall
+turtle = Turtle()
+turtle.color("green")
+turtle.penup()
+turtle.goto(250,250)
+turtle.pendown()
+turtle.pensize(7)
+turtle.hideturtle()
+for i in range(4):
+    turtle.right(90)
+    for j in range(50):     
+        if j%2 == 0:
+            turtle.pendown()
+            turtle.forward(10)
+        else:
+            turtle.penup()
+            turtle.forward(10)
 
 segments = []
 snake = Snake()
