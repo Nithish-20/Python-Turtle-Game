@@ -50,9 +50,24 @@ while game_on:
         snake.extend_segment()
         food.refresh()
         
+
+    if snake.head.xcor() < -250:
+        snake.head.goto(-snake.head.xcor()-20, snake.head.ycor())
+
+    elif snake.head.xcor() > 250:
+        snake.head.goto(-snake.head.xcor()+20, snake.head.ycor())
+        
+    elif snake.head.ycor() > 250:
+        snake.head.goto(snake.head.xcor(), -snake.head.ycor()+20)
+    
+    elif snake.head.ycor() < -250:
+        snake.head.goto(snake.head.xcor(), -snake.head.ycor()-20)
+        '''
     if snake.head.xcor() > 250 or snake.head.xcor() < -250 or snake.head.ycor() > 250 or snake.head.ycor() < -250:
         score.game_over()
         game_on = False
+
+        '''
 
     for segment in snake.segments[1:]:
         if snake.head.distance(segment) < 10:
